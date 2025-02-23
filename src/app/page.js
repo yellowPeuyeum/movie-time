@@ -3,14 +3,14 @@
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 
+import Slider from '@components/Slider';
+
 export default function Home() {
   return (
     <div className="site">
       <Header />
       <main className="container mx-auto">
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          Homepage
-        </div>
+        <Slider />
       </main>
       <Footer />
     </div>
