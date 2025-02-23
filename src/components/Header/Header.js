@@ -20,11 +20,11 @@ export default function Header({ logo }) {
         <div className="header__brand">
           {logo || <Link href="/"><Logo /></Link>}
         </div>
-        <div className="header__search">
+        <div className="header__search hidden md:block">
           <SearchBox />
           {/* categories */}
         </div>
-        <nav className="header__nav">
+        <nav className="header__nav hidden md:block">
           <ul className="header__nav-list">
             {navList.map(nav => (
               <li className="header__nav-item" key={`nav-${nav.label}`}>

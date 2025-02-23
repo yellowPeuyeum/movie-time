@@ -1,0 +1,58 @@
+.filters {
+  @apply h-full rounded-lg;
+  background: linear-gradient(180deg, #0E1723 0%, rgba(30, 35, 42, 0) 100%);
+}
+
+.filter__module {
+  @apply p-4;
+  @apply border-b-[1px] border-white/[.07];
+}
+
+.filter__module:last-child {
+  @apply border-transparent;
+}
+
+.filter-title {
+  @apply font-semibold;
+}
+
+.filter-sort__options {
+  @apply w-full py-2 px-3 rounded-sm;
+  @apply bg-[#E0E0E0]/15;
+
+  /* arrows */
+  @apply appearance-none;
+  @apply bg-no-repeat bg-[0.65rem_auto] bg-[right_0.7rem_top_50%];
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23C4C4C4%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.filter-genre__list {
+  @apply flex flex-col;
+  @apply gap-3;
+}
+
+.filter-genre__control {
+  @apply flex items-center justify-between;
+  @apply gap-1;
+  @apply text-sm;
+}
+
+.filter-genre__checkbox {
+  @apply inline-flex;
+}
+
+.filter-genre__input {
+  @apply size-[1em];
+  @apply appearance-none;
+  @apply bg-white/20;
+  @apply border-[1px] border-white/50 rounded-sm;
+}
+
+.filter-genre__input:checked {
+  @apply appearance-auto;
+  @apply accent-[var(--color-primary)];
+}
+
+.filter-genre__label {
+  @apply order-first;
+}

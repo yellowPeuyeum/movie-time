@@ -1,5 +1,5 @@
 .slider {
-    @apply m-auto py-[56px];
+    @apply m-auto;
     --slide-height: auto;
     --slide-spacing: 34px;
     --slide-size: 50%;
@@ -12,7 +12,7 @@
 }
 
 .slider__slide {
-    @apply flex-[0_0_var(--slide-size)];
+    @apply flex-[0_0_100%] md:flex-[0_0_var(--slide-size)];
     @apply min-w-[0];
     @apply pl-[var(--slide-spacing)];
     transform: translate3d(0, 0, 0);

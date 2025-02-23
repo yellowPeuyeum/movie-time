@@ -13,13 +13,14 @@ export default function Home() {
     <div className="site">
       <Header />
       <main>
-        <section className="section">
+        <Section className="pt-[90px] pb-[36px]">
           <Slider />
-        </section>
+        </Section>
         <Section
+          backdrop
+          titleAccent
           className="pt-[90px] pb-[100px]"
           title="Discover Movies"
-          titleAccent={true}
           moduleContent={
             <>
               <Button>Popularity</Button>

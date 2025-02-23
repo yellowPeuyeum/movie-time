@@ -10,6 +10,7 @@ export default function Section({
   moduleContent,
   title,
   titleAccent = false,
+  titleSize = 'md',
   ...rest
 }) {
   const rootClass = classNames({
@@ -20,18 +21,19 @@ export default function Section({
   const titleClass = classNames({
     'section__title': true,
     'section__title--accent': titleAccent,
+    'section__title--lg': titleSize === 'lg',
   });
 
   return (
     <section className={rootClass}>
       {backdrop && <div className="section__backdrop" />}
       <div className="section__container">
-        <div className="section__header">
-          <h2 className={titleClass}>
-            Discover Movies
-          </h2>
-          <div className="section__module">{moduleContent}</div>
-        </div>
+        {title && (
+          <div className="section__header">
+            <h2 className={titleClass}>{title}</h2>
+            <div className="section__module">{moduleContent}</div>
+          </div>
+        )}
         <div className="section__body">
           {children}
         </div>
@@ -47,4 +49,5 @@ Section.propTypes = {
   moduleContent: PropTypes.node,
   title: PropTypes.node,
   titleAccent: PropTypes.bool,
+  titleSize: PropTypes.oneOfType(['md', 'lg']),
 };

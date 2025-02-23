@@ -1,5 +1,4 @@
 .section {
-  @apply pt-[90px] pb-[100px];
   @apply relative overflow-hidden;
 }
 
@@ -23,6 +22,10 @@
 
 .section__title--accent {
   @apply relative;
+}
+
+.section__title--lg {
+  @apply text-4xl;
 }
 
 .section__title--accent:before {
