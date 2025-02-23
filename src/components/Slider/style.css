@@ -19,10 +19,10 @@
 }
 
 .slider__slide {
-    @apply transition-[opacity];
+    @apply transition-[filter];
 }
 .slider__slide:not(.is-snapped) {
-    @apply opacity-10;
+    @apply brightness-50;
 }
 
 .slider__item {

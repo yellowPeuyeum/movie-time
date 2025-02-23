@@ -10,6 +10,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx,css,scss}\""
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "embla-carousel": "^8.5.2",
     "embla-carousel-class-names": "^8.5.2",
     "embla-carousel-react": "^8.5.2",

@@ -6,6 +6,7 @@
   --background: #1E232B;
   --foreground: #ffffff;
   --color-primary: #E74C3C;
+  --color-accent: #929292;
 }
 
 @media (prefers-color-scheme: dark) {
