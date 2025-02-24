@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Image from 'next/image';
 
 export default function SliderItem({
   category,
@@ -13,10 +14,12 @@ export default function SliderItem({
       <div className="slider__item">
         <div className="slider__poster">
           <figure className="slider__poster-container">
-            <img
+            <Image
               className="slider__img"
               src={poster}
               alt={`${title} poster`}
+              width={300}
+              height={300}
             />
           </figure>
         </div>

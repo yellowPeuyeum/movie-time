@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Link from 'next/link';
 
 import Logo from '../Logo';
@@ -13,9 +15,14 @@ const navList = [
   { label: 'Login', path: '/' },
 ];
 
-export default function Header({ logo }) {
+export default function Header({ logo, variant = 'static' }) {
+  const rootClass = classNames({
+    'header': true,
+    'header--absolute': variant === 'absolute',
+  })
+
   return (
-    <div className="header">
+    <div className={rootClass}>
       <div className="header__container">
         <div className="header__brand">
           {logo || <Link href="/"><Logo /></Link>}
@@ -42,3 +49,8 @@ export default function Header({ logo }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  logo: PropTypes.node,
+  variant: PropTypes.oneOf(['static', 'absolute']),
+};

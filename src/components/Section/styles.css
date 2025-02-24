@@ -24,8 +24,16 @@
   @apply relative;
 }
 
+.section__title--sm {
+  @apply text-sm;
+}
+
 .section__title--lg {
   @apply text-4xl;
+}
+
+.section__title--light {
+  @apply text-[var(--color-primary)];
 }
 
 .section__title--accent:before {

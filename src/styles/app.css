@@ -33,4 +33,5 @@ svg {
   @apply grid;
   @apply grid-rows-[auto_1fr_auto];
   @apply min-h-screen;
+  @apply relative;
 }

@@ -11,6 +11,7 @@ export default function Section({
   title,
   titleAccent = false,
   titleSize = 'md',
+  variant = 'dark',
   ...rest
 }) {
   const rootClass = classNames({
@@ -21,11 +22,13 @@ export default function Section({
   const titleClass = classNames({
     'section__title': true,
     'section__title--accent': titleAccent,
+    'section__title--sm': titleSize === 'sm',
     'section__title--lg': titleSize === 'lg',
+    'section__title--light': variant === 'light',
   });
 
   return (
-    <section className={rootClass}>
+    <section className={rootClass} {...rest}>
       {backdrop && <div className="section__backdrop" />}
       <div className="section__container">
         {title && (
@@ -49,5 +52,6 @@ Section.propTypes = {
   moduleContent: PropTypes.node,
   title: PropTypes.node,
   titleAccent: PropTypes.bool,
-  titleSize: PropTypes.oneOfType(['md', 'lg']),
+  titleSize: PropTypes.oneOf(['sm', 'md', 'lg']),
+  variant: PropTypes.oneOf(['dark', 'light']),
 };

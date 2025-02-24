@@ -29,7 +29,7 @@ export default function Home() {
           }
         >
           <div className="py-8">
-            <MovieList cols={5} />
+            <MovieList cols={5} max={10} />
           </div> 
         </Section>
       </main>

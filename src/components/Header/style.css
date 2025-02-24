@@ -2,6 +2,11 @@
   @apply bg-white/5;
 }
 
+.header--absolute {
+  @apply absolute w-full top-0 left-0;
+  @apply z-10;
+}
+
 .header__container {
   @apply container;
   @apply flex justify-between;
