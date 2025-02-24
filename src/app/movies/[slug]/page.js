@@ -1,3 +1,7 @@
+'use client'
+
+import useSwr from 'swr';
+import { useParams } from 'next/navigation'
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 
@@ -6,6 +10,7 @@ import Section from '@components/Section';
 import OverviewDetail from '@components/OverviewDetail';
 import MovieList from '@components/MovieList';
 import Reviews from '@components/Reviews';
+import { getMovies } from '@utils/movies';
 
 const metaList = [
   { label: 'User Score', value: '3621 Votes' },
@@ -30,8 +35,17 @@ const reviews = [
   }
 ];
 
-export default async function MovieDetail({ params }) {
-  const slug = (await params).slug;
+// const API_URL = 'http://localhost:3000';
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export default function MovieDetail() {
+  // const { slug } = await params;
+  const { slug } = useParams()
+
+  const { data, isLoading } = useSwr(`/api/movies?id=${slug || ''}`, fetcher);
+  const { data: recommendations } = useSwr('/api/movies', fetcher);
+
+  if (isLoading) return null;
 
   return (
     <div className="site">
@@ -39,16 +53,16 @@ export default async function MovieDetail({ params }) {
       <main className="bg-white relative">
         <Banner
           alt="movie banner"
-          img="https://m.media-amazon.com/images/M/MV5BMjEzYmZkNjktODBmYi00NzNkLWIzMjItMjhkMWZiZTZlN2MwXkEyXkFqcGc@._V1_SX1440.jpg"
+          img={data.PosterHi}
         />
         <OverviewDetail
-          description="In 1984, after saving the world in Wonder Woman (2017), the immortal Amazon warrior, Princess Diana of Themyscira, finds herself trying to stay under the radar, working as an archaeologist at the Smithsonian Museum. With the memory of the brave U.S. pilot, Captain Steve Trevor, etched on her mind, Diana Prince becomes embroiled in a sinister conspiracy of global proportions when a transparent, golden-yellow citrine gemstone catches the eye of the power-hungry entrepreneur, Maxwell Lord. Now, as a dear old friend from the past miraculously enters the picture, and Barbara Minerva, Diana's insecure gemologist colleague gives in to desire, suddenly, deceit, greed, and false promises catapult Maxwell into the limelight. More and more, cataclysmic events push the world to the brink, and emotionally vulnerable Diana must address a cruel dilemma. Can mighty Wonder Woman save humankind once again?"
+          description={data.PlotFull || data.Plot}
           genre="Fantasy, Action, Adventure"
           metaList={metaList}
-          poster="https://m.media-amazon.com/images/M/MV5BMjEzYmZkNjktODBmYi00NzNkLWIzMjItMjhkMWZiZTZlN2MwXkEyXkFqcGc@._V1_SX500.jpg"
+          poster={data.Poster}
           rating="7.0"
-          title={`Wonder Woman 1984 ${slug}`}
-          year="2020"
+          title={data.Title}
+          year={data.Year}
         />
         <Section
           className="pt-[44px] pb-[58px]"
@@ -64,7 +78,11 @@ export default async function MovieDetail({ params }) {
           title="RECOMMENDATION MOVIES"
         >
           <div className="pt-6">
-            <MovieList cols={5} max={5} />
+            <MovieList
+              data={getMovies(recommendations)}
+              cols={5}
+              max={5}
+            />
           </div>
         </Section>
       </main>

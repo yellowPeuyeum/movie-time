@@ -3,20 +3,15 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { movieData } from './sampleData';
 import './style.css';
 
-const moviesData = movieData.map(movie => ({
-  _id: movie._id,
-  category: movie.Genre,
-  desc: movie.Plot,
-  poster: movie.Poster,
-  rate: movie.imdbRating,
-  title: movie.Title,
-  year: movie.Year,
-}));
-
-export default function MovieList({ cols = 4, max }) {
+export default function MovieList({
+  // isLoading,
+  // error,
+  data: movies = [],
+  cols = 4,
+  max
+}) {
   const rootClass = classNames({
     'movies grid gap-4 grid-cols-2': true,
     'md:grid-cols-4': !cols || cols === 4,
@@ -25,7 +20,7 @@ export default function MovieList({ cols = 4, max }) {
 
   return (
     <div className={rootClass}>
-      {moviesData.slice(0, max).map(movie => (
+      {movies.slice(0, max).map(movie => (
         <div className="movie" key={`movie-item-${movie.title}`}>
           <div className="movie__poster">
             <span className="movie__rate">{movie.rate}</span>
@@ -55,5 +50,8 @@ export default function MovieList({ cols = 4, max }) {
 
 MovieList.propTypes = {
   cols: PropTypes.number,
+  // error: PropTypes.object,
+  // isLoading: PropTypes.bool,
   max: PropTypes.number,
+  movies: PropTypes.array,
 };

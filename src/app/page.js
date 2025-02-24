@@ -1,4 +1,5 @@
-// import Image from 'next/image';
+'use client'
+import useSwr from 'swr';
 
 import Header from '@components/Header';
 import Footer from '@components/Footer';
@@ -7,8 +8,13 @@ import Button from '@components/Button';
 import Section from '@components/Section';
 import Slider from '@components/Slider';
 import MovieList from '@components/MovieList';
+import { getMovies } from '@utils/movies';
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Home() {
+  const { data } = useSwr('/api/movies', fetcher);
+
   return (
     <div className="site">
       <Header />
@@ -29,7 +35,11 @@ export default function Home() {
           }
         >
           <div className="py-8">
-            <MovieList cols={5} max={10} />
+            <MovieList
+              cols={5}
+              data={getMovies(data)}
+              max={10}
+            />
           </div> 
         </Section>
       </main>

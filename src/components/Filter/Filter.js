@@ -1,3 +1,4 @@
+import FilterCheckbox from './FilterCheckbox';
 import './style.css';
 
 const sortOptions = [
@@ -51,18 +52,10 @@ export default function Filter() {
         <div className="filter-genre">
           <ul className="filter-genre__list">
             {genreOptions.map(option => (
-              <li className="filter-genre__item" key={`checkbox-genre-${option.label}`}>
-                <label className="filter-genre__control">
-                  <span className="filter-genre__checkbox">
-                    <input
-                      className="filter-genre__input"
-                      name="genres"
-                      type="checkbox"
-                    />
-                  </span>
-                  <span className="filter-genre__label">{option.label}</span>
-                </label>
-              </li>
+              <FilterCheckbox
+                {...option}
+                key={`checkbox-genre-${option.label}`}
+              />
             ))}
           </ul>
         </div>

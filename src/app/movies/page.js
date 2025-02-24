@@ -1,4 +1,6 @@
-// import Image from 'next/image';
+'use client'
+import useSwr from 'swr';
+import { useSearchParams } from 'next/navigation';
 
 import Header from '@components/Header';
 import Footer from '@components/Footer';
@@ -6,8 +8,16 @@ import Footer from '@components/Footer';
 import Section from '@components/Section';
 import MovieList from '@components/MovieList';
 import Filter from '@components/Filter';
+import { getMovies } from '@utils/movies';
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Movies() {
+  const searchParams = useSearchParams();
+  const q = searchParams.get('q');
+
+  const { data } = useSwr(`/api/movies?q=${q || ''}`, fetcher);
+
   return (
     <div className="site">
       <Header />
@@ -24,7 +34,7 @@ export default function Movies() {
               <Filter />
             </div>
             <div className="col-span-7">
-              <MovieList />
+              <MovieList data={getMovies(data)} />
             </div>
           </div>
         </Section>
