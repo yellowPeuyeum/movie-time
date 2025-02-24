@@ -1,0 +1,19 @@
+.footer {
+  @apply bg-black/30;
+  @apply text-[#929292];
+}
+
+.footer__container {
+  @apply container;
+  @apply flex;
+  @apply gap-4 md:gap-12;
+  @apply py-[65px] m-auto;
+}
+
+.footer__module {
+  @apply flex items-center;
+}
+
+.footer__brand {
+  @apply flex-1 justify-center;
+}

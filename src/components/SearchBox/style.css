@@ -1,0 +1,20 @@
+.search-box {
+  @apply bg-black/30;
+  @apply flex items-center gap-2;
+  @apply px-4 py-1.5;
+  @apply rounded-md;
+}
+
+.search-box__input {
+  @apply bg-transparent;
+  @apply outline-none;
+  @apply flex-1;
+}
+
+.search-box__input:autofill {
+  @apply bg-transparent;
+}
+
+.input-adornment--start {
+  @apply text-[20px]
+}

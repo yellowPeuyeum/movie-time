@@ -1,0 +1,63 @@
+.overview {
+  @apply container mx-auto -mt-[180px];
+}
+
+.overview-container {
+  @apply flex gap-6;
+}
+
+.overview-poster {
+  @apply flex-[0_0_20%] relative z-10;
+}
+
+.movie-poster__img {
+  @apply w-full;
+}
+
+.overview-header {
+  @apply mb-4 relative;
+}
+
+.movie-year {
+  @apply text-lg font-medium;
+}
+
+.movie-title {
+  @apply text-4xl font-semibold mb-1;
+}
+
+.movie-genre {
+  @apply text-sm font-medium;
+}
+
+.overview-meta__backdrop {
+  @apply bg-black/50 w-full h-[72px] left-0 absolute;
+}
+
+.overview-meta__container {
+  @apply relative flex py-4 gap-8;
+}
+
+.overview-meta__item {
+  @apply flex flex-col justify-between text-xs font-medium uppercase;
+}
+
+.overview-meta__item-highlight {
+  @apply text-4xl font-semibold -mr-4;
+}
+
+.overview-meta__divider {
+  @apply h-auto self-stretch shrink-0 border-white/50 border-r-[thin];
+}
+
+.overview-meta__label {
+  @apply text-white/50;
+}
+
+.overview-title {
+  @apply text-sm font-semibold text-[var(--color-primary)] mb-2 pt-4;
+}
+
+.overview-description {
+  @apply text-sm text-black;
+}

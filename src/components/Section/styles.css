@@ -1,0 +1,49 @@
+.section {
+  @apply relative overflow-hidden;
+}
+
+.section__container {
+  @apply container mx-auto relative;
+}
+
+.section__backdrop {
+  @apply bg-white/5 absolute;
+  @apply w-full h-[300px];
+  @apply top-0 left-0;
+}
+
+.section__header {
+  @apply flex items-center justify-between;
+}
+
+.section__title {
+  @apply text-2xl font-semibold;
+}
+
+.section__title--accent {
+  @apply relative;
+}
+
+.section__title--sm {
+  @apply text-sm;
+}
+
+.section__title--lg {
+  @apply text-4xl;
+}
+
+.section__title--light {
+  @apply text-[var(--color-primary)];
+}
+
+.section__title--accent:before {
+  content: '';
+  @apply bg-[var(--color-primary)] inline-block;
+  @apply w-[60%] h-[6px];
+  @apply absolute;
+  @apply -top-[12px];
+}
+
+.section__module {
+  @apply flex items-center gap-2;
+}

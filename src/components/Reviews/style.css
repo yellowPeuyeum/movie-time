@@ -1,0 +1,35 @@
+.review {
+  @apply text-black bg-[#f9f9f9] rounded-[14px] px-8 py-6 shadow-[0_4px_4px_rgba(0,0,0,0.1)];
+}
+
+.review__header {
+  @apply flex gap-4 items-center;
+}
+
+.review__avatar {
+  @apply p-[12px] inline-flex items-center justify-center bg-[#1E232B]/[0.2] rounded-full text-white text-2xl;
+}
+
+.review__title {
+  @apply flex-1;
+}
+
+.review__name {
+  @apply font-bold text-sm;
+}
+
+.review__date {
+  @apply text-xs text-[#666666] mt-1;
+}
+
+.review__rate {
+  @apply flex gap-2 bg-[#C4C4C4]/30 rounded-lg px-3 py-2;
+}
+
+.review__rate-value {
+  @apply text-4xl font-semibold;
+}
+
+.review__body {
+  @apply line-clamp-[8] pt-6 italic text-sm;
+}

@@ -1,0 +1,7 @@
+.banner {
+  @apply h-[560px] overflow-hidden brightness-50;
+}
+
+.banner__img {
+  @apply object-fill w-full;
+}

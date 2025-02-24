@@ -1,0 +1,14 @@
+.logo {
+  @apply flex;
+  @apply gap-2;
+
+  svg { @apply h-auto; }
+}
+
+.logo__icon {
+  @apply text-[38px];
+}
+
+.logo__text {
+  @apply text-[68px];
+}
